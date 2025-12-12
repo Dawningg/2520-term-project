@@ -43,7 +43,7 @@ export default {
     // TODO: get ahold of the db using readDb();
     const db = await readDb();
     // TODO: check the database for a user with a matching username and password
-    const user = db.users.find((user) => user.username === username && user.password === password)
+    const user = db.users.find(user => user.username === username && user.password === password)
     // TODO: if there is no user:
     //       - construct a new Error("Invalid username or password");
     //       - set the statusCode of that error object to 401
