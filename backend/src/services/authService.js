@@ -14,9 +14,8 @@ export default {
     //       - construct a new Error("Username already taken");
     //       - set the statusCode of that error object to 400
     //       - throw the err
-    const existing = db.users.find((u) => u.username === username);
-    if (existing) {
-      const err = new Error("Username already taken");
+    if (existingUser) {
+      const err = new Error("Username already taken")
       err.statusCode = 400;
       throw err;
     }
@@ -44,7 +43,7 @@ export default {
     // TODO: get ahold of the db using readDb();
     const db = await readDb();
     // TODO: check the database for a user with a matching username and password
-    const user = db.users.find(user => user.username === username && user.password === password);
+    const user = db.users.find(user => user.username === username && user.password === password)
     // TODO: if there is no user:
     //       - construct a new Error("Invalid username or password");
     //       - set the statusCode of that error object to 401
@@ -59,6 +58,7 @@ export default {
     // TODO:  return an object that contains 2 things:
     //  - token
     //  - user : { id: user.id, username: user.username, profilePicture: user.profilePicture }
+
     return {
       token,
       user: {
